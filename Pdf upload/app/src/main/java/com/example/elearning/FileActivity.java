@@ -46,6 +46,12 @@ public class FileActivity extends AppCompatActivity {
     }
     private void selectPDFfile()
     {
+        EditText editText = (EditText) findViewById(R.id.edit_text_file_name);
+        if(editText.getText().toString().length()==0)
+        {
+            Toast.makeText(this,"Enter file name first",Toast.LENGTH_SHORT).show();
+            return;
+        }
         Intent intent = new Intent();
         intent.setType("Application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);
